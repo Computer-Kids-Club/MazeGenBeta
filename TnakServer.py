@@ -7,7 +7,7 @@ maze = [[0 for x in range(mx)] for y in range(my)]
 verWall = [[1 for x in range(mx+1)] for y in range(my+1)]
 horWall = [[1 for x in range(mx+1)] for y in range(my+1)]
 possibleDirections = [(0, 1), (0, -1), (1, 0), (-1, 0)]
-color = [0, 1] # RGB colors of the maze
+color = [0, 1]
 
 def printMaze():
     mazePrintable = [[] for y in range(my*3)]
@@ -68,6 +68,15 @@ for i in range(random.randint(10, 20)):
     horWall[random.randint(1, mx-1)][random.randint(1, mx-1)] = 0
 for i in range(random.randint(10, 20)):
     verWall[random.randint(1, mx-1)][random.randint(1, mx-1)] = 0
-    
 
 printMaze()
+
+horWallList = []
+verWallList = []
+
+for x in range(mx+1):
+    for y in range(my+1):
+        if horWall[x][y]:
+            horWallList.append((x,y))
+        if verWall[x][y]:
+            verWallList.append((x,y))
